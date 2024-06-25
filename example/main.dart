@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text_highlight_codespark/text_highlighter.dart';
+import 'package:text_highlight_codespark/text_highlight_codespark.dart';
 
 void main() {
   runApp(const MyApp());

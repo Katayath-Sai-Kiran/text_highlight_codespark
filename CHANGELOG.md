@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2024-06-25
+### Fixed
+- Updated homepage URL to GitHub repository.
+- Documentation: Included comprehensive examples, Comments and usage instructions in the `README.md` file.
+
+
 ## [1.0.0] - 2024-06-25
 ### Added
 - Initial release of `HighlightText` package.

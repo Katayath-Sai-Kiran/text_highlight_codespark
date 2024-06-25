@@ -1,4 +1,6 @@
 
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/banner.png" alt="Banner"/>
+
 # HighlightText
 
 `HighlightText` is a Flutter widget that highlights specific parts of a given text. It supports case-sensitive searches, multiple queries, and regular expressions for advanced matching scenarios.

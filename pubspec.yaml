@@ -1,0 +1,40 @@
+name: text_highlighter
+description: "A Flutter package for highlighting text within a string, supporting single, multiple, and regex-based queries."
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+screenshots:
+
+  - description: 'Single Query Highlighting - Highlights a single query within the source text, demonstrating basic text highlighting functionality.'
+    path: assets/single_query.png
+    width: 300
+
+  - description: 'Multiple Queries Highlighting - Highlights multiple queries within the source text, showcasing how multiple terms are highlighted simultaneously.'
+    path: assets/multiple_query.png
+    width: 300
+
+  - description: 'Regex Highlighting - Uses regex patterns to highlight specific text within the source, demonstrating advanced highlighting with regular expressions.'
+    path: assets/regex_query.png
+    width: 300
+
+ 
+

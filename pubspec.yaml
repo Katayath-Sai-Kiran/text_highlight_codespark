@@ -1,7 +1,7 @@
 name: text_highlight_codespark
 description: "A Flutter package for highlighting text within a string, supporting single, multiple, and regex-based queries."
-version: 1.0.0
-homepage: https://github.com/Katayath-Sai-Kiran/text_highlight_codesparkc
+version: 1.0.1
+homepage: https://github.com/Katayath-Sai-Kiran/text_highlight_codespark
 
 environment:
   sdk: '>=3.4.0 <4.0.0'

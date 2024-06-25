@@ -29,7 +29,7 @@ void main() {
 
     test('Multiple Queries Highlighting', () {
       final highlighter = HighlightText.multiple(
-        queires: const [
+        queries: const [
           'highlight',
           'text'
         ], // Provide the required 'queires' parameter (intentional typo in 'queires' to match the original code)

@@ -25,7 +25,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  text_highlight_codespark: ^1.0.0
+  text_highlight_codespark: ^1.0.1
 ```
 
 Then, run `flutter pub get` to install the package.
@@ -36,7 +36,7 @@ Then, run `flutter pub get` to install the package.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:text_highlight_codespark_codespark/text_highlight_codespark_codespark.dart';
+import 'package:text_highlight_codespark/text_highlight_codespark.dart';
 
 class ExampleSingleQuery extends StatelessWidget {
   @override

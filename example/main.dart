@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 24), // Spacer between examples
               Center(
                 child: HighlightText.multiple(
-                  queires: const [
+                  queries: const [
                     'highlight',
                     'text',
                     'example',
@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 24), // Spacer between examples
               Center(
                 child: HighlightText.regex(
+                  
                   regex:
                       r'\b\d{4}\b', // Regular expression pattern to highlight four-digit numbers
                   source:

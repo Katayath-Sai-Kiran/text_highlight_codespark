@@ -5,7 +5,7 @@
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/sigle_query.png" alt="Single Query Highlighting" width="150"/>
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/single_query.png" alt="Single Query Highlighting" width="150"/>
 <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/multiple_query.png" alt="Multiple Queries Highlighting" width="150"/>
 <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/regex_query.png" alt="Regex Highlighting" width="150"/>
 
@@ -23,7 +23,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  highlight_text: ^1.0.0
+  text_highlight_codespark: ^1.0.0
 ```
 
 Then, run `flutter pub get` to install the package.
@@ -34,7 +34,7 @@ Then, run `flutter pub get` to install the package.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:highlight_text/highlight_text.dart';
+import 'package:text_highlight_codespark_codespark/text_highlight_codespark_codespark.dart';
 
 class ExampleSingleQuery extends StatelessWidget {
   @override
@@ -59,7 +59,7 @@ class ExampleSingleQuery extends StatelessWidget {
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:highlight_text/highlight_text.dart';
+import 'package:text_highlight_codespark/text_highlight_codespark.dart';
 
 class ExampleMultipleQueries extends StatelessWidget {
   @override
@@ -84,7 +84,7 @@ class ExampleMultipleQueries extends StatelessWidget {
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:highlight_text/highlight_text.dart';
+import 'package:text_highlight_codespark/text_highlight_codespark.dart';
 
 class ExampleRegex extends StatelessWidget {
   @override

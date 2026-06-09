@@ -1,7 +1,16 @@
 name: text_highlight_codespark
-description: "A Flutter package for highlighting text within a string, supporting single, multiple, and regex-based queries."
-version: 2.0.0
+description: "Flutter widget for highlighting rich text — single query, multiple queries with per-term colors, regex patterns, tappable spans, and rounded-corner styling."
+version: 2.1.0
 homepage: https://github.com/Katayath-Sai-Kiran/text_highlight_codespark
+repository: https://github.com/Katayath-Sai-Kiran/text_highlight_codespark
+issue_tracker: https://github.com/Katayath-Sai-Kiran/text_highlight_codespark/issues
+
+topics:
+  - text-highlighting
+  - multi-color-text
+  - regex-highlight
+  - highlight
+  - rich-text
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
@@ -16,25 +25,25 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
 
-# The following section is specific to Flutter packages.
 flutter:
 
 screenshots:
-
-  - description: 'Single Query Highlighting - Highlights a single query within the source text, demonstrating basic text highlighting functionality.'
+  - description: 'Single Query Highlighting — highlights a single query within the source text.'
     path: assets/single_query.png
     width: 300
 
-  - description: 'Multiple Queries Highlighting - Highlights multiple queries within the source text, showcasing how multiple terms are highlighted simultaneously.'
+  - description: 'Multiple Queries Highlighting — highlights multiple queries with per-term colors.'
     path: assets/multiple_query.png
     width: 300
 
-  - description: 'Regex Highlighting - Uses regex patterns to highlight specific text within the source, demonstrating advanced highlighting with regular expressions.'
+  - description: 'Regex Highlighting — uses regex patterns to highlight matches in the source text.'
     path: assets/regex_query.png
     width: 300
-
- 
-

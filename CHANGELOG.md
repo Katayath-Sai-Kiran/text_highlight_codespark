@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-06-10
+
+### Added
+- Comprehensive `///` dartdoc comments on all public classes, constructors, and fields — visible on hover in VS Code and rendered on pub.dev.
+- `repository` and `issue_tracker` fields in `pubspec.yaml` for better pub.dev discoverability.
+- `topics` field (`text`, `search`, `ui`, `widget`, `regex`) for pub.dev topic search.
+- Platform declarations (`android`, `ios`, `linux`, `macos`, `web`, `windows`) for full platform support scoring.
+- Overhauled `README.md` with author attribution, pub.dev badges, comprehensive code examples for all modes, and an API reference table.
+- Updated example app showcasing all eight usage scenarios with a sectioned `ListView`.
+
+---
+
 ## [2.0.0] - 2026-06-10
 
 ### Breaking Changes

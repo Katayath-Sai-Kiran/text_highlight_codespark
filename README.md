@@ -3,149 +3,122 @@
 
 # HighlightText
 
-`HighlightText` is a Flutter widget that highlights specific parts of a given text. It supports case-sensitive searches, multiple queries, and regular expressions for advanced matching scenarios.
+A Flutter widget that highlights specific parts of a given text. Supports single queries, multiple queries with per-term colors, regex patterns, tappable highlights, and rounded-corner styling.
 
-## Screenshot
+## Screenshots
 
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/single_query.png" alt="Single Query Highlighting" width="150"/>
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/multiple_query.png" alt="Multiple Queries Highlighting" width="150"/>
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/regex_query.png" alt="Regex Highlighting" width="150"/>
-
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/single_query.png" alt="Single Query" width="150"/>
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/multiple_query.png" alt="Multiple Queries" width="150"/>
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_highlight_codespark/main/assets/regex_query.png" alt="Regex" width="150"/>
 
 ## Features
 
-- **Single Query Highlighting**: Highlight a single query within the source text.
-- **Multiple Queries Highlighting**: Highlight multiple queries within the source text.
-- **Regex Highlighting**: Highlight matches based on a regular expression.
-- **Case Sensitivity**: Option to enable or disable case-sensitive searches.
+- **Single query** — highlight one term in the source text
+- **Multiple queries** — highlight several terms at once, each with its own color
+- **Regex** — highlight using any regular expression pattern
+- **Per-query colors** — assign a different `Color` to each term in multi-query mode
+- **Tappable highlights** — `onTap` callback fires with the matched string
+- **Rounded corners** — `borderRadius` gives highlights a pill/badge look
+- **Layout passthrough** — `textAlign`, `maxLines`, `overflow`, `softWrap`
+- **Case sensitivity** — opt in or out per widget
 
 ## Installation
 
-Add this to your package's `pubspec.yaml` file:
-
 ```yaml
 dependencies:
-  text_highlight_codespark: ^1.0.1
+  text_highlight_codespark: ^2.0.0
 ```
 
-Then, run `flutter pub get` to install the package.
+Then run `flutter pub get`.
 
 ## Usage
 
-### Single Query Highlighting
+### Single query
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:text_highlight_codespark/text_highlight_codespark.dart';
-
-class ExampleSingleQuery extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: HighlightText(
-          query: 'highlight',
-          source: 'This is a highlight text example.',
-          highlightColor: Colors.yellow,
-          textStyle: TextStyle(fontSize: 20),
-          matchedTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          caseSensitive: false,
-        ),
-      ),
-    );
-  }
-}
+HighlightText(
+  source: 'This is an example of text highlighting.',
+  highlight: HighlightQuery.single('example'),
+  highlightColor: Colors.yellow,
+  textStyle: TextStyle(fontSize: 16),
+  matchedTextStyle: TextStyle(fontWeight: FontWeight.bold),
+)
 ```
 
-### Multiple Queries Highlighting
+### Multiple queries with per-query colors
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:text_highlight_codespark/text_highlight_codespark.dart';
-
-class ExampleMultipleQueries extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: HighlightText.multiple(
-          queires: ['highlight', 'text'],
-          source: 'This is a highlight text example.',
-          highlightColor: Colors.green,
-          textStyle: TextStyle(fontSize: 20),
-          matchedTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          caseSensitive: false,
-        ),
-      ),
-    );
-  }
-}
+HighlightText(
+  source: 'Flutter and Dart are great technologies.',
+  highlight: HighlightQuery.multiple(
+    ['flutter', 'dart'],
+    colors: {
+      'flutter': Colors.blue,
+      'dart': Colors.teal,
+    },
+  ),
+  textStyle: TextStyle(fontSize: 16),
+)
 ```
 
-### Regex Highlighting
+### Regex
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:text_highlight_codespark/text_highlight_codespark.dart';
-
-class ExampleRegex extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: HighlightText.regex(
-          regex: r'\b\w{7}\b', // Highlights all 7-letter words
-          source: 'This is an example with regex highlighting.',
-          highlightColor: Colors.blue,
-          textStyle: TextStyle(fontSize: 20),
-          matchedTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          caseSensitive: false,
-        ),
-      ),
-    );
-  }
-}
+HighlightText(
+  source: 'The years 2023, 2024, and 2025 are important.',
+  highlight: HighlightQuery.regex(r'\b\d{4}\b'),
+  highlightColor: Colors.purple,
+  matchedTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+)
 ```
 
-## Constructor Parameters
+### Tappable highlights
 
-### HighlightText
+```dart
+HighlightText(
+  source: 'Tap the word flutter to see it fire.',
+  highlight: HighlightQuery.single('flutter'),
+  highlightColor: Colors.amber,
+  onTap: (matchedText) => print('Tapped: $matchedText'),
+)
+```
 
-| Parameter          | Type        | Default          | Description                             |
-|--------------------|-------------|------------------|-----------------------------------------|
-| `query`            | `String`    | Required         | The query string to highlight.          |
-| `source`           | `String`    | Required         | The source text in which to search.     |
-| `highlightColor`   | `Color`     | `Colors.red`     | The color used to highlight matches.    |
-| `textStyle`        | `TextStyle` | `null`           | The default style for non-matching text.|
-| `matchedTextStyle` | `TextStyle` | `null`           | The style for matching text.            |
-| `caseSensitive`    | `bool?`     | `false`          | Whether the search is case-sensitive.   |
+### Rounded corners
 
-### HighlightText.multiple
+```dart
+HighlightText(
+  source: 'Rounded highlight looks clean.',
+  highlight: HighlightQuery.single('highlight'),
+  highlightColor: Colors.green,
+  borderRadius: BorderRadius.circular(6),
+)
+```
 
-| Parameter          | Type        | Default          | Description                             |
-|--------------------|-------------|------------------|-----------------------------------------|
-| `queries`          | `List<String>` | Required         | The list of query strings to highlight. |
-| `source`           | `String`    | Required         | The source text in which to search.     |
-| `highlightColor`   | `Color`     | `Colors.red`     | The color used to highlight matches.    |
-| `textStyle`        | `TextStyle` | `null`           | The default style for non-matching text.|
-| `matchedTextStyle` | `TextStyle` | `null`           | The style for matching text.            |
-| `caseSensitive`    | `bool?`     | `false`          | Whether the search is case-sensitive.   |
+## Parameters
 
-### HighlightText.regex
+| Parameter          | Type                    | Default        | Description                                                  |
+|--------------------|-------------------------|----------------|--------------------------------------------------------------|
+| `source`           | `String`                | required       | The text to display and search within.                       |
+| `highlight`        | `HighlightQuery`        | required       | What to highlight — use `.single`, `.multiple`, or `.regex`. |
+| `highlightColor`   | `Color`                 | `Colors.yellow`| Fallback highlight color.                                    |
+| `textStyle`        | `TextStyle?`            | `null`         | Style for the full text.                                     |
+| `matchedTextStyle` | `TextStyle?`            | `null`         | Additional style merged onto matched spans.                  |
+| `caseSensitive`    | `bool`                  | `false`        | Whether matching is case-sensitive.                          |
+| `onTap`            | `void Function(String)?`| `null`         | Callback fired with the matched string on tap.               |
+| `borderRadius`     | `BorderRadius?`         | `null`         | Rounds the corners of highlighted spans.                     |
+| `textAlign`        | `TextAlign?`            | `null`         | Passed through to `Text.rich`.                               |
+| `maxLines`         | `int?`                  | `null`         | Passed through to `Text.rich`.                               |
+| `overflow`         | `TextOverflow?`         | `null`         | Passed through to `Text.rich`.                               |
+| `softWrap`         | `bool?`                 | `null`         | Passed through to `Text.rich`.                               |
 
-| Parameter          | Type        | Default          | Description                             |
-|--------------------|-------------|------------------|-----------------------------------------|
-| `regex`            | `String`    | Required         | The regular expression to use.          |
-| `source`           | `String`    | Required         | The source text in which to search.     |
-| `highlightColor`   | `Color`     | `Colors.red`     | The color used to highlight matches.    |
-| `textStyle`        | `TextStyle` | `null`           | The default style for non-matching text.|
-| `matchedTextStyle` | `TextStyle` | `null`           | The style for matching text.            |
-| `caseSensitive`    | `bool?`     | `false`          | Whether the search is case-sensitive.   |
+## HighlightQuery
+
+| Constructor                         | Description                                              |
+|-------------------------------------|----------------------------------------------------------|
+| `HighlightQuery.single(query, {color})` | Highlight one string. Optional `color` overrides `highlightColor`. |
+| `HighlightQuery.multiple(queries, {colors})` | Highlight a list of strings. `colors` is a `Map<String, Color>` keyed by query. |
+| `HighlightQuery.regex(pattern)`     | Highlight all regex matches.                             |
 
 ## License
 
 [MIT License](LICENSE)
-
-
-
-
